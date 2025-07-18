@@ -144,8 +144,6 @@ namespace enfasis_color
                     byte b = (byte)((colorValue >> 16) & 0xFF);
                     byte g = (byte)((colorValue >> 8) & 0xFF);
                     byte r = (byte)(colorValue & 0xFF);
-
-                    // Listo, ¡lo tenés!
                     return XColor.FromArgb(a, r, g, b);
                 } else return XColor.Empty;
             } else return XColor.Empty;
