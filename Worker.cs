@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using Microsoft.Win32;
 using OpenRGB.NET;
 using XColor = System.Drawing.Color;
@@ -11,12 +12,13 @@ namespace enfasis_color
         private Device? _device;
         private Zone? _zone;
         private const int fps = 5;
-        private const string userSid = "Your_user_sid_from_app_chooser";
+        private readonly string userSid;
         private const int retryDelayMs = 3000; // Tiempo entre reintentos (3 segundos)
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(ILogger<Worker> logger, SID? sid)
         {
             _logger = logger;
+            userSid = sid?.value ?? "";
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -129,7 +131,7 @@ namespace enfasis_color
             }
         }
 
-        private static XColor GetAccentColor()
+        private XColor GetAccentColor()
         {
 
             using var key = Registry.Users.OpenSubKey($@"{userSid}\Software\Microsoft\Windows\DWM");
