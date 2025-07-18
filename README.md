@@ -41,3 +41,7 @@
 
    ```powershell
    New-Service -Name "AsraAccentColorOpenRGB" -BinaryPathName "ruta\del\servicio.exe" -DisplayName "RGB Color de énfasis" -Description "Este servicio se conecta a OpenRGB para enviar el color de énfasis del sistema a una zona RGB de la PC" -StartupType Automatic
+
+  ## Licencia
+
+Este proyecto está licenciado bajo la [GPL-3.0](LICENSE.txt).
