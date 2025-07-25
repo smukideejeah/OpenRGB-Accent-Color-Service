@@ -36,7 +36,6 @@ namespace enfasis_color
 
                             RegistryKey? accentColorReg = Registry.Users.OpenSubKey(@$"{userSid}\Software\Asra\AccentColor");
                             if (accentColorReg == null) { 
-                                _logger.LogWarning("No se encontró la clave del registro de AccentColor.");
                                 await Task.Delay(retryDelayMs, stoppingToken);
                                 continue;
                             }
@@ -45,7 +44,6 @@ namespace enfasis_color
                             string? deviceZone = accentColorReg.GetValue("deviceZone") as string;
                             if (string.IsNullOrEmpty(deviceName) || string.IsNullOrEmpty(deviceZone))
                             {
-                                _logger.LogWarning("No se encontró el nombre del dispositivo en el registro.");
                                 await Task.Delay(retryDelayMs, stoppingToken);
                                 continue;
                             }
@@ -57,7 +55,6 @@ namespace enfasis_color
 
                             if (_device == null)
                             {
-                                _logger.LogWarning("No se encontró ningún dispositivo RGB.");
                                 await Task.Delay(retryDelayMs, stoppingToken);
                                 continue;
                             }
@@ -66,7 +63,6 @@ namespace enfasis_color
                             _zone = _device.Zones.FirstOrDefault(z => z.Name.Equals(deviceZone, StringComparison.OrdinalIgnoreCase));
                             if(_zone == null)
                             {
-                                _logger.LogWarning("No se encontró ninguna zona");
                                 await Task.Delay(retryDelayMs, stoppingToken);
                                 continue;
                             }
@@ -83,7 +79,6 @@ namespace enfasis_color
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Error durante la ejecución del loop. Se intentará reconectar.");
                     DisposeClient();
                 }
 
@@ -112,7 +107,6 @@ namespace enfasis_color
             }
             catch (Exception ex)
             {
-                _logger.LogWarning(ex, "No se pudo conectar a OpenRGB. Se reintentará.");
                 DisposeClient();
             }
         }

@@ -14,4 +14,8 @@
     <PackageReference Include="OpenRGB.NET" Version="3.1.1" />
     <PackageReference Include="System.Management" Version="9.0.7" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\" />
+  </ItemGroup>
 </Project>

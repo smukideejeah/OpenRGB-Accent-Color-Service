@@ -11,8 +11,7 @@
 - [OpenRGB instalado](https://openrgb.org/)
 - OpenRGB SDK Server activo
 - [OpenRGB Accent Chooser](https://github.com/smukideejeah/OpenRGB-Accent-Chooser)
-- OpenRGB SDK Server activo
-- .NET (versión requerida por el proyecto)
+- .NET 8.0 (versión requerida por el proyecto)
 
 ## Instalación y configuración
 
