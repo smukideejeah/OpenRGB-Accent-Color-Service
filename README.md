@@ -7,7 +7,9 @@
 ![OpenRGB Accent Color Service funcionando](assets/servicio.png)
 
 ## Requisitos
-
+- Windows 10 o superior
+- [OpenRGB instalado](https://openrgb.org/)
+- OpenRGB SDK Server activo
 - [OpenRGB Accent Chooser](https://github.com/smukideejeah/OpenRGB-Accent-Chooser)
 - OpenRGB SDK Server activo
 - .NET (versión requerida por el proyecto)
